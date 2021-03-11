@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>    
+<html>    
+    <head>    
+        <title>Login Form</title>    
+        <link rel="stylesheet" type="text/css" href="css.css">
+    </head>    
+    <body>    
+        <div class="container">
+            <section id="content">
+                <!--Login form-->
+                <form method="post" action="validate">
+                    <h1>Login</h1>
+                    <div>
+                        <input type="text" name="Uid" placeholder="Username" required="" id="username"  >
+                    </div>
+                    <div>
+                        <input type="password"  name="Pass" placeholder="Password" required="" id="password"  >
+                    </div>
+                    <div class="remember">
+                        <label for="remember">Remember me</label>
+                        <input type="checkbox" value="Remember me" id="remember">
+                    </div>
+                        <input type="submit" value="Log in" >
+                </form>
+            </section>
+        </div>
+    </body>
+
+</html>   

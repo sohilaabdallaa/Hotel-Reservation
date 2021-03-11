@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> 
+    <!--Links for Bootstrap-->  
+
+
+    <title>Make Reservation</title>
+    <style>
+
+        .section {
+            position: relative;
+            height: 100vh;
+        }
+
+        .section .section-center {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+
+        #booking {
+            font-family: 'Cabin', sans-serif;
+            background-color: #f7f9fa;
+        }
+
+        .booking-form {
+            position: relative;
+            max-width: 642px;
+            width: 100%;
+            margin: auto;
+            background: #fff;
+            -webkit-box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .booking-form>.booking-bg {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            bottom: 0px;
+            width: 250px;
+            background-image: url("photo4.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .booking-form>form {
+            margin-left: 250px;
+            padding: 30px;
+            border: 1px solid #f9fafc;
+            border-left: 0px;
+        }
+
+        .booking-form .form-header {
+            margin-bottom: 30px;
+        }
+
+        .booking-form .form-header h2 {
+            margin: 0;
+            margin-bottom: 0px;
+            font-weight: 700;
+            color: #122244;
+            font-size: 35px;
+            text-transform: capitalize;
+        }
+
+        .booking-form .form-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .booking-form .form-control {
+            background-color: #f7f9fa;
+            height: 40px;
+            padding: 0px 10px;
+            border-radius: 0px;
+            -webkit-transition: 0.2s;
+            transition: 0.2s;
+            color: #122244;
+            border: 0px;
+            font-size: 16px;
+            font-weight: 700;
+            -webkit-box-shadow: inset 0 1px 4px rgba(181, 193, 204, 0.3);
+            box-shadow: inset 0 1px 4px rgba(181, 193, 204, 0.3);
+        }
+
+        .booking-form .form-control::-webkit-input-placeholder {
+            color: #dde3e8;
+        }
+
+        .booking-form .form-control:-ms-input-placeholder {
+            color: #dde3e8;
+        }
+
+        .booking-form .form-control::placeholder {
+            color: #dde3e8;
+        }
+
+        .booking-form .form-control:focus {
+            -webkit-box-shadow: inset 0 1px 4px rgba(181, 193, 204, 0.3);
+            box-shadow: inset 0 1px 4px rgba(181, 193, 204, 0.3);
+        }
+
+        .booking-form input[type="date"].form-control:invalid {
+            color: #dde3e8;
+        }
+
+        .booking-form select.form-control {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        .booking-form select.form-control+.select-arrow {
+            position: absolute;
+            right: 0px;
+            bottom: 4px;
+            width: 32px;
+            line-height: 32px;
+            height: 32px;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .booking-form select.form-control+.select-arrow:after {
+            content: '\279C';
+            display: block;
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+            color: #dddee9;
+            font-size: 14px;
+        }
+
+        .booking-form .form-label {
+            color: #b5c1cc;
+            font-weight: 700;
+            -webkit-transition: 0.2s;
+            transition: 0.2s;
+            text-transform: uppercase;
+            line-height: 24px;
+            height: 24px;
+            font-size: 14px;
+            z-index: 1;
+        }
+
+        .booking-form .form-btn {
+            margin-top: 10px;
+        }
+
+        .booking-form .submit-btn {
+            color: #fff;
+            background-color: #80582C;
+            font-weight: 700;
+            padding: 13px 35px;
+            font-size: 16px;
+            border: none;
+            width: 100%;
+        }
+
+        @media only screen and (max-width: 480px) {
+            .booking-form>.booking-bg {
+                display: none;
+            }
+            .booking-form>form {
+                margin-left: 0px;
+            }
+        }       
+    </style>
+</head>
+
+<body>
+
+
+    <div id="booking" class="section">
+        <div class="section-center">
+            <div class="container">
+                <div class="row">
+                    <div class="booking-form">
+                        <div class="booking-bg"></div>
+                        <form action="reserve" method="post">
+                            <div class="form-header">
+                                <h2>Make your reservation</h2>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <span class="form-label">Hotel Name</span>
+                                        <input class="form-control" type="text" name="hotelname" value=""  required/>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Check In</span>
+                                            <input class="form-control" type="date" name="datefrom" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Check Out</span>
+                                            <input class="form-control" type="date"name="dateto" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Room Number</span>
+                                            <input class="form-control" type="text"name="roomid" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Adults</span>
+
+                                            <select name="numberofadults"  class="form-control">
+                                                <option value="1">1 adults</option>
+                                                <option value="2">2 adults</option>
+                                                <option value="3">3 adults</option>
+                                                <option value="4">4 adults</option>
+                                                <option value="5">5 adults</option>
+                                                <option value="6">6 adults</option>
+                                                <option value="7">7 adults</option>
+                                                <option value="8">8 adults</option>
+                                                <option value="9">9 adults</option>
+                                                <option value="10">10 adults</option>
+                                            </select>
+
+                                            <span class="select-arrow"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <span class="form-label">Children</span>
+                                            <select class="form-control"name="numberofchildren">
+
+                                                <option value="1">1 child</option>
+                                                <option value="2">2 children</option>
+                                                <option value="3">3 children</option>
+                                                <option value="4">4 children</option>
+                                                <option value="5">5 children</option>
+                                                <option value="6">6 children</option>
+                                                <option value="7">7 children</option>
+                                                <option value="8">8 children</option>
+                                                <option value="9">9 children</option>
+                                                <option value="10">10 children</option>
+                                            </select>
+                                            <span class="select-arrow"></span>
+                                        </div>
+                                        <div>
+                                            <span class="form-label">Payment Method</span>
+                                            <select  class="form-control" name="paymentmethod">
+                                                <option>Credit Card</option>
+                                                <option>Visa</option>
+                                                <option>Master Card</option>
+                                                <option>paypal</option>
+                                            </select>
+                                          <p>We Accept : <i class="fa fa-cc-mastercard w3-large"> </i> <i class="fa fa-credit-card w3-large"></i> <i class="fa fa-cc-amex w3-large"></i> <i class="fa fa-cc-cc-visa w3-large"></i> <i class="fa fa-cc-paypal w3-large"></i>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-btn">
+                                    <button class="submit-btn">Reserve Now</button>
+                                </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

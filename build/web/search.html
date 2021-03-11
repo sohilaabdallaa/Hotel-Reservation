@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css.css">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <style>
+        label {
+            display: block;
+            font: 1rem 'Fira Sans', sans-serif;
+        }
+
+        input,
+        label {
+            margin: .4rem 0;
+            font-size: 20px;
+
+        }
+        .formdiv{
+
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            width: 30%;
+        }
+        select {
+    font-size: 1rem;}
+    </style>
+    <body>
+        <form action="resultsearch.jsp">
+            <div class="formdiv">
+                <h1> Search </h1>
+                <div>
+                    <lable>
+                        Destination/property name:
+                    </lable>
+                    <br>
+                    <input name="place" type="text" placeholder="Search.." style="border: 1px solid #ccc" required>
+                    <button type="submit" ><i class="fas fa-search-location" ></i></button>
+                </div>
+
+                <div>
+                    <div>
+                        <lable>Check-in date</lable>
+                        <br>
+                        <input type="date" id="start"   value="2021-01-01" name="reservation-stard" min="2021-01-01" max="2021-12-31">
+                    </div>
+
+                    <div>
+                        <lable>Check-out date</lable>
+                        <br>
+                        <input type="date" id="start"   value="2021-01-01" name="reservation-end" min="2021-01-01" max="2021-12-31">
+                    </div>
+                    <br>
+                </div>
+                <div>
+
+                    <select name="number of adults">
+                        <option value="1">1 adults</option>
+                        <option value="2" selected="selected">2 adults</option>
+                        <option value="3">3 adults</option>
+                        <option value="4">4 adults</option>
+                        <option value="5">5 adults</option>
+                        <option value="6">6 adults</option>
+                        <option value="7">7 adults</option>
+                        <option value="8">8 adults</option>
+                        <option value="9">9 adults</option>
+                        <option value="10">10 adults</option>
+                    </select>
+                    
+                        <select name="number of children">
+                        <option value="1">1 child</option>
+                        <option value="2" selected="selected">2 children</option>
+                        <option value="3">3 children</option>
+                        <option value="4">4 children</option>
+                        <option value="5">5 children</option>
+                        <option value="6">6 children</option>
+                        <option value="7">7 children</option>
+                        <option value="8">8 children</option>
+                        <option value="9">9 children</option>
+                        <option value="10">10 children</option>
+                    </select>
+                </div>
+                <input type="submit" value="search" />
+            </div>
+        </form>
+    </body>
+</html>

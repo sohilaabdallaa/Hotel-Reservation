@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+    <head>
+        <title>Sign Up</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+
+        <script>
+            function checkForm(form)
+            {
+                if (form.username.value === "") {
+                    var userName = document.getElementById("username");
+                    userName.innerHTML = "   Error: Username cannot be blank!";
+                    userName.style.color = "red";
+                    form.username.focus();
+                    return false;
+                } else
+                {
+                    login(form.username.value);
+                }
+
+                if (form.displayname.value === "") {
+                    var displayname = document.getElementById("displayname");
+                    displayname.innerHTML = "   Error: display name cannot be blank!";
+                    displayname.style.color = "red";
+                    form.displayname.focus();
+                    return false;
+                } else
+                {
+                    login(form.displayname.value);
+                } 
+
+                if (form.email.value === "") {
+                    var email = document.getElementById("email");
+                    email.innerHTML = "   Error: E-mail cannot be blank!";
+                    email.style.color = "red";
+                    form.email.focus();
+                    return false;
+                } else
+                {
+                    login(form.email.value);
+                }
+
+                if (form.number.value === "") {
+                    var number = document.getElementById("number");
+                    number.innerHTML = "   Error: number cannot be blank!";
+                    number.style.color = "red";
+                    form.number.focus();
+                    return false;
+                } else
+                {
+                    login(form.number.value);
+                }
+
+                if (form.role.value === "") {
+                    var role = document.getElementById("role");
+                    role.innerHTML = "   Error: role cannot be blank!";
+                    role.style.color = "red";
+                    form.role.focus();
+                    return false;
+                } else
+                {
+                    login(form.role.value);
+                }
+
+                if (form.balance.value === "") {
+                    var balance = document.getElementById("role");
+                    balance.innerHTML = "   Error: balance cannot be blank!";
+                    balance.style.color = "red";
+                    form.balance.focus();
+                    return false;
+                } else
+                {
+                    login(form.balance.value);
+                }
+
+                if (form.role.value == "client" || form.role.value == "admin")
+                {
+                    login(form.role.value);
+                } else
+                {
+                    var role = document.getElementById("role");
+                    role.innerHTML = "   Error: role should be admin or client!";
+                    role.style.color = "red";
+                    form.role.focus();
+                    return false;
+                }
+            }
+            function login(username)
+            {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("POST", "checkDB", true);
+                xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xmlhttp.send("username=" + username);
+                var userName = document.getElementById("username");
+                xmlhttp.onreadystatechange = function ()
+                {
+                    if (xmlhttp.readyState === 4 && xmlhttp.status === 200)
+                    {
+                        userName.innerHTML = xmlhttp.responseText.toString();
+                        form.username.focus();
+                    }
+                }
+            }
+            function onChange(elem) {
+                if (elem.username == "username") {
+                    document.getElementById("username").innerHTML = "";
+                }
+                if (elem.displayname == "displayname") {
+                    document.getElementById("displayname").innerHTML = "";
+                }
+                if (elem.email == "email") {
+                    document.getElementById("email").innerHTML = "";
+                }
+
+                if (elem.number == "number") {
+                    document.getElementById("number").innerHTML = "";
+                }
+
+                if (elem.role == "role") {
+                    document.getElementById("role").innerHTML = "";
+                }
+                if (elem.balance == "balance") {
+                    document.getElementById("balance").innerHTML = "";
+                }
+                /* var role = document.getElementById('role').value;
+                 console.log(role);
+                 if (role === "") {
+                 document.getElementById('balance').disabled = true;
+                 } else {
+                 document.getElementById('balance').disabled = false;
+                 }*/
+            }
+        </script>
+    </head>
+    <body>
+        <form onsubmit= "return checkForm(this);"action ="register_DB" >
+            <td> Enter Your username : <input type="text" name="username" onchange="onChange(this);"> <br>
+            <label id="username" class="username"></label></td> <br>
+
+        <td> Enter Your display name : <input type="text" name="displayname" onchange="onChange(this);"> <br>
+        <label id="displayname" class="displayname"></label></td> <br>
+
+        <td> Enter Your Email : <input type="email" name="email" onchange="onChange(this);"> <br>
+        <label id="email" class="email"></label></td> <br>
+
+        <td> Enter Your Phone : <input type="number" name="number" onchange="onChange(this);"> <br>
+        <label id="number" class="number"></label></td> <br>
+
+        <td> Enter Your Role : <input type="text" name="role" onchange="onChange(this);"> <br>
+        <label id="role" class="role"></label></td> <br>
+        <td> Enter Your balance : <input type="number" name="balance" onchange="onChange(this);"> <br>
+        <label id="balance" class="balance"></label></td> <br>
+
+         <div class="g-recaptcha"
+			data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+                
+        <td colspan="2"><input type="submit" value="Sign-up"> 
+
+
+
+</form>   
+</body>
+</html>
